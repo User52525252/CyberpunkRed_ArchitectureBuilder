@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 
@@ -160,6 +161,17 @@ namespace CyberpunkRed_ArchitectureBuilder
                 writer.Close();
 
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo { FileName = @"https://cybernationuncensored.com/netarchitecture-generator/", UseShellExecute = true });
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+        Process.Start(new ProcessStartInfo { FileName = @"https://github.com/User52525252/CyberpunkRed_ArchitectureBuilder", UseShellExecute = true });
+        
         }
     }
 }
