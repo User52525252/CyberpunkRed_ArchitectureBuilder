@@ -11,8 +11,9 @@ namespace CyberpunkRed_ArchitectureBuilder
             InitializeComponent();
             
         }
-        string Architecture ="|Lobby|";
+        string Architecture = "    "+"|Lobby|";
         int BranchCount = 0;
+        int Floors = 1;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -45,32 +46,36 @@ namespace CyberpunkRed_ArchitectureBuilder
             {
                 DV = "|DV:" + DV;
             }
+            if (Floors == 3) {
+              Architecture = Architecture + Environment.NewLine + "   ||   " + Environment.NewLine + "    " + "|/Lobby|";
+            }
 
             switch (FloorType)
             {
                 case "File":
-                    Architecture = Architecture + Environment.NewLine + "   ||   "  + Environment.NewLine +DV+ "|         File          |";           
+                    Architecture = Architecture + Environment.NewLine + "   ||   "  + Environment.NewLine+"|"+ Floors+"|" +DV+ "|         File          |";           
                     
                     break;
                 case "Password":
-                    Architecture = Architecture + Environment.NewLine + "   ||   " + Environment.NewLine + DV + "|    Password    |";
+                    Architecture = Architecture  + Environment.NewLine + "   ||   " + Environment.NewLine + "|" + Floors + "|" + DV + "|    Password    |";
                     break;
                 case "Control Node":
-                    Architecture = Architecture + Environment.NewLine + "   ||   " + Environment.NewLine + DV + "|Control_Node|";
+                    Architecture = Architecture  + Environment.NewLine + "   ||   " + Environment.NewLine + "|" + Floors + "|" + DV + "|Control_Node|";
                     break;
                 case "Black ICE":
-                    Architecture = Architecture + Environment.NewLine + "   ||   " + Environment.NewLine + DV + "|    Black_ICE    |";
+                    Architecture = Architecture  + Environment.NewLine + "   ||   " + Environment.NewLine + "|" + Floors + "|" + DV + "|    Black_ICE    |";
                     break;
                 case "Other":
-                    Architecture = Architecture + Environment.NewLine + "   ||   " + Environment.NewLine + DV + "|       Other        |";
+                    Architecture = Architecture  + Environment.NewLine + "   ||   " + Environment.NewLine + "|" + Floors + "|" + DV + "|       Other        |";
                     break;
                 default:
-                    Architecture = Architecture + Environment.NewLine + "   ||   " + Environment.NewLine + DV + "|       Other        |";
+                    Architecture = Architecture  + Environment.NewLine + "   ||   " + Environment.NewLine + "|" + Floors + "|" + DV + "|       Other        |";
                     break;
 
 
                 
             }
+            Floors++;
             richTextBox1.Text = Architecture;
         }
 
@@ -133,6 +138,7 @@ namespace CyberpunkRed_ArchitectureBuilder
             Architecture = "|Lobby|";
             BranchCount = 0;
             richTextBox1.Text = "";
+            Floors = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
